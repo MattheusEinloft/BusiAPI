@@ -43,7 +43,8 @@ defmodule BusiApiWeb.BusinessControllerTest do
                "id" => id,
                "description" => "some description",
                "name" => "some name",
-               "tag" => "some tag"
+               "tag" => "some tag",
+               "date" => NaiveDateTime.to_string(Directory.get_business!(id).inserted_at)
              } = json_response(conn, 200)["data"]
     end
 
@@ -66,7 +67,8 @@ defmodule BusiApiWeb.BusinessControllerTest do
                "id" => id,
                "description" => "some updated description",
                "name" => "some updated name",
-               "tag" => "some updated tag"
+               "tag" => "some updated tag",
+               "date" => NaiveDateTime.to_string(Directory.get_business!(id).inserted_at)
              } = json_response(conn, 200)["data"]
     end
 
